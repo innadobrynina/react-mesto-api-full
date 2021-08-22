@@ -1,0 +1,5 @@
+.popup__input-error_image {
+    position: absolute;
+    top: calc(62%);
+    left: 36px;
+}

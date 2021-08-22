@@ -1,0 +1,9 @@
+.popup__button-text {
+    /* padding: ; */
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: white;
+    font-style: normal;
+    margin: 14px 124px 18px 125px;
+}
