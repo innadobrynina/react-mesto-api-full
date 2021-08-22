@@ -20,10 +20,10 @@ const app = express();
 
 app.locals.jwtKey = 'secret-key';
 
-app.use(requestLogger); // подключаем логгер запросов
 app.use(cookieParser());
 app.use(errors());
 app.use(helmet());
+app.use(requestLogger);
 
 mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
