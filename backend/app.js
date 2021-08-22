@@ -8,6 +8,7 @@ const { login, createUser } = require('./controllers/users');
 const { auth } = require('./middlewares/auth');
 const errorHandler = require('./middlewares/errorHandler');
 const { validateEmailAndPassword, validateRegistration } = require('./middlewares/celebrate');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const noSuchPageRouter = require('./routes/noSuchPage');
 
@@ -19,6 +20,7 @@ const app = express();
 
 app.locals.jwtKey = 'secret-key';
 
+app.use(requestLogger); // подключаем логгер запросов
 app.use(cookieParser());
 app.use(errors());
 app.use(helmet());
@@ -43,6 +45,8 @@ app.use('/', usersRoutes);
 app.use('/', cardsRoutes);
 
 app.use('/', noSuchPageRouter);
+
+app.use(errorLogger);
 
 app.use(errors());
 
