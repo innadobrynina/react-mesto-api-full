@@ -8,7 +8,6 @@ const { login, createUser } = require('./controllers/users');
 const { auth } = require('./middlewares/auth');
 const errorHandler = require('./middlewares/errorHandler');
 const { validateEmailAndPassword, validateRegistration } = require('./middlewares/celebrate');
-const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const noSuchPageRouter = require('./routes/noSuchPage');
 
@@ -23,7 +22,6 @@ app.locals.jwtKey = 'secret-key';
 app.use(cookieParser());
 app.use(errors());
 app.use(helmet());
-app.use(requestLogger);
 
 mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
@@ -45,8 +43,6 @@ app.use('/', usersRoutes);
 app.use('/', cardsRoutes);
 
 app.use('/', noSuchPageRouter);
-
-app.use(errorLogger);
 
 app.use(errors());
 
