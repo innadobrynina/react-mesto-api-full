@@ -1,9 +1,0 @@
-.root {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    min-height: 100vh;
-    font-family: "Inter", Arial, sans-serif;
-    background-color: #000000;
-}
