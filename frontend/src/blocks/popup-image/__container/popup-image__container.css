@@ -1,0 +1,13 @@
+.popup-image__container {
+    margin: 0;
+    position: fixed;
+    max-width: 75vw;
+    width: auto;
+    max-height: 75vh;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: none;
+    border-radius: 0;
+}

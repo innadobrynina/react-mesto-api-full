@@ -1,0 +1,7 @@
+.card__info {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 25px 21px 31px;
+    border-radius: 0 0 10px 10px;
+}

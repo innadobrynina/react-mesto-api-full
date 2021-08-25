@@ -1,0 +1,23 @@
+.header__button {
+  visibility: hidden;
+  opacity: 0;
+  border: none;
+  position: absolute;
+  right: 0px;
+  bottom: 0;
+  margin-bottom: 40px;
+  
+}
+
+@media screen and (max-width: 760px) {
+  .header__button {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .header__button {
+    margin-bottom: 25px;
+  }
+}

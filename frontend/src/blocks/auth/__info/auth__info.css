@@ -1,0 +1,6 @@
+.auth__info {
+  display: flex;
+  justify-content: center;
+  margin: 15px auto 0;
+  max-width: 358px;
+}

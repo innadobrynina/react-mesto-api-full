@@ -1,0 +1,13 @@
+.profile__avatar-edit {
+    outline: none;
+    background-image: url(../../../images/edit-avatar.svg);
+    width: 26px;
+    height: 26px;
+    border: none;
+    padding: 0;
+    background-color: Transparent;
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+}

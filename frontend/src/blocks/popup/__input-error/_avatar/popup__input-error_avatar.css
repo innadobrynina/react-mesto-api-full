@@ -1,0 +1,6 @@
+.popup__input-error_avatar {
+   position: absolute;
+    left: 0;
+    top: 30px;
+    color: red;
+}

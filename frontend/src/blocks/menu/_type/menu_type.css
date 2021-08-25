@@ -1,0 +1,21 @@
+  
+@media screen and (max-width: 767px) {
+  .menu_type {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 12px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu_type:after {
+    width: 100%;
+    content: '';
+    margin-bottom: 28px;
+    display: block;
+    height: 1px;
+    background: #545454;
+    opacity: .7;
+  }
+}

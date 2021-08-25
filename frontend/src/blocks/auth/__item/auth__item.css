@@ -1,0 +1,23 @@
+.auth__item {
+  border: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 27px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #CCCCCC;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.2;
+  margin-bottom: 30px;
+  background: transparent;
+  color: #fff;
+  outline: none;
+}
+
+.auth__item:last-of-type {
+  margin-bottom: 216px;
+}
+.auth__item:-webkit-autofill {
+  box-shadow: inset 0 0 0px 9999px #000;
+  -webkit-text-fill-color: #fff;
+}

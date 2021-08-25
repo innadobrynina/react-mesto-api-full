@@ -1,0 +1,6 @@
+@media screen and (max-width: 760px) {
+  .header__menu_visible {
+    display: flex;
+    align-items: center;
+  }
+}

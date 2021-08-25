@@ -1,0 +1,9 @@
+.form__submit-btn_type_auth {
+    height: 50px;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.form__submit-btn_type_auth:hover {
+  opacity: 0.85;
+}

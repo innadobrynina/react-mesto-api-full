@@ -1,0 +1,20 @@
+.header__button-close {
+  border: none;
+  outline: none;
+  background: url(../../../images/close_icon.svg);
+  width: 36px;
+  height: 36px;
+  background-size: contain;
+  transition: opacity .2s;
+}
+
+.header__button-close:hover {
+  opacity: .5;
+}
+
+@media screen and (min-width: 618px) {
+  .header__button-close {
+    width: 56px;
+    height: 56px;
+  }
+}

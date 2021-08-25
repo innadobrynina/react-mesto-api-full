@@ -1,0 +1,15 @@
+.header__menu {
+  position: absolute;
+}
+
+@media screen and (max-width: 760px) {
+  .header__menu {
+    position: static;
+    width: 100%;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+    padding-bottom: 40px;
+    padding-top: 40px;
+    display: none;
+  }
+}
