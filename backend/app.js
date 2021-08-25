@@ -48,4 +48,5 @@ app.use(errors());
 
 app.use(errorHandler);
 
-app.listen(PORT, () => {});
+// eslint-disable-next-line no-console
+app.listen(PORT, () => console.log('Запустился!!'));
