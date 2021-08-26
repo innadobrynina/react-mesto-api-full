@@ -3,9 +3,10 @@ const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
 // Массив доменов, с которых разрешены кросс-доменные запросы
 const allowedCors = [
-  'localhost:3000',
   'https://indob.nomoredomains.monster',
   'http://indob.nomoredomains.monster',
+  'localhost:3000',
+  'http://localhost:3000',
 ];
 
 // eslint-disable-next-line consistent-return
@@ -18,7 +19,7 @@ module.exports = (req, res, next) => {
     // уст. заголовок, который разрешает браузеру запросы с этого источника
     // console.log(origin);
     res.header('Access-Control-Allow-Origin', origin);
-    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Credentials', 'true');
   }
 
   // предварительный запрос? - добавляем нужные заголовки
@@ -28,7 +29,7 @@ module.exports = (req, res, next) => {
     // разрешаем кросс-доменные запросы с этими (requestHeaders) заголовками
     res.header('Access-Control-Allow-Headers', requestHeaders);
     // завершаем обработку запроса и возвращаем результат клиенту
-    return res.end();
+    res.end();
   }
 
   next();
