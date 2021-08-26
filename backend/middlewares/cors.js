@@ -3,13 +3,13 @@ const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
 // Массив доменов, с которых разрешены кросс-доменные запросы
 const allowedCors = [
+  'http://localhost:3000',
   'https://indob.nomoredomains.monster',
   'http://indob.nomoredomains.monster',
-  'http://localhost:3000',
 ];
 
 // eslint-disable-next-line consistent-return
-module.exports = ((req, res, next) => {
+module.exports = (req, res, next) => {
   const { origin } = req.headers; // источник запроса - в переменную origin
   const { method } = req; // тип запроса (HTTP-метод) в соотв. переменную
   const requestHeaders = req.headers['access-control-request-headers']; // сохр. список заголовков исходного запроса
@@ -32,4 +32,4 @@ module.exports = ((req, res, next) => {
   }
 
   next();
-});
+};
