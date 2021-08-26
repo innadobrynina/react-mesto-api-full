@@ -1,4 +1,4 @@
-export const BASE_URL = 'backend.indob.nomoredomains.monster';
+export const BASE_URL = 'http://backend.indob.nomoredomains.monster';
 
 export const checkStatus = (res) => {
     if (res.ok) {
