@@ -11,18 +11,13 @@ const { validateEmailAndPassword, validateRegistration } = require('./middleware
 
 const noSuchPageRouter = require('./routes/noSuchPage');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('./middlewares/cors');
 
 const usersRoutes = require('./routes/users');
 const cardsRoutes = require('./routes/cards');
 
 const { PORT = 3000 } = process.env;
 const app = express();
-
-const allowedCors = [
-  'https://indob.nomoredomains.monster',
-  'http://indob.nomoredomains.monster',
-  'localhost:3000',
-];
 
 app.locals.jwtKey = 'secret-key';
 
@@ -38,23 +33,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useUnifiedTopology: true,
 });
 
-app.use((req, res, next) => {
-  const { origin } = req.headers;
-  if (allowedCors.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-  }
-  const { method } = req;
-  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
-  if (method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-  }
-  const requestHeaders = req.headers['access-control-request-headers'];
-  if (method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Headers', requestHeaders);
-  }
-
-  next();
-});
+app.use(cors);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
