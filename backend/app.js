@@ -25,6 +25,7 @@ app.use(cookieParser());
 app.use(errors());
 app.use(helmet());
 app.use(requestLogger);
+app.use(cors);
 
 mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
@@ -32,8 +33,6 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useFindAndModify: false,
   useUnifiedTopology: true,
 });
-
-app.use(cors);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
