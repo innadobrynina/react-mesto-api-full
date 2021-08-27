@@ -20,13 +20,6 @@ const cardsRoutes = require('./routes/cards');
 const { PORT = 3000 } = process.env;
 const app = express();
 
-const allowedCors = [
-  'https://frontend.indob.nomoredomains.monster',
-  'http://frontend.indob.nomoredomains.monster',
-  'localhost:3000',
-  'http://localhost:3000',
-];
-
 const corsOptions = {
   origin: [
     'http://frontend.indob.nomoredomains.monster',
@@ -56,31 +49,6 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useCreateIndex: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
-});
-
-app.use((req, res, next) => {
-  const { origin } = req.headers; // источник запроса - в переменную origin
-  const { method } = req; // тип запроса (HTTP-метод) в соотв. переменную
-  const requestHeaders = req.headers['access-control-request-headers']; // сохр. список заголовков исходного запроса
-  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
-
-  if (allowedCors.includes(origin)) {
-    // уст. заголовок, который разрешает браузеру запросы с этого источника
-    // console.log(origin);
-    res.header('Access-Control-Allow-Origin', origin);
-  }
-
-  // предварительный запрос? - добавляем нужные заголовки
-  if (method === 'OPTIONS') {
-    // разрешаем кросс-доменные запросы любых типов (по умолчанию)
-    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-    // разрешаем кросс-доменные запросы с этими (requestHeaders) заголовками
-    res.header('Access-Control-Allow-Headers', requestHeaders);
-    // завершаем обработку запроса и возвращаем результат клиенту
-    return res.end();
-  }
-
-  return next();
 });
 
 app.use(express.urlencoded({ extended: true }));
