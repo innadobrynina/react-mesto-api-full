@@ -31,13 +31,12 @@ export const authorize = ({email, password}) => {
         .then((res) => checkStatus(res));
 }
 
-export const checkToken = (token) => {
+export const checkToken = () => {
     return fetch(`${BASE_URL}/users/me`, {
         method: 'GET',
         credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
         },
     })
         .then((res) => checkStatus(res));
