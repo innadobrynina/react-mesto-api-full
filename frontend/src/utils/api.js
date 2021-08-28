@@ -1,4 +1,12 @@
-export class Api {
+const configAPI = {
+    baseUrl: 'https://backend.indob.nomoredomains.monster',
+    headers: {
+      // authorization: 'bb37a53f-65dd-4153-b255-188fa4e0f13b',
+      'Content-Type': 'application/json',
+    },
+  };
+
+class Api {
     constructor(options) {
         this._baseUrl = options.baseUrl;
         this._headers = options.headers;
@@ -79,10 +87,13 @@ export class Api {
 }
 
 
-export const api = new Api({
+export const api = new Api(configAPI);
+
+export default api;
+    /* {
     baseUrl: "https://mesto.nomoreparties.co/v1/cohort-22",
     headers: {
         authorization: "bb37a53f-65dd-4153-b255-188fa4e0f13b",
         "Content-Type": "application/json",
     },
-});
+}); */
