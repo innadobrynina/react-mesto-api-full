@@ -191,17 +191,9 @@ function App() {
 
     auth.authorize(email, password)
       .then((data) => {
-        // if (data.token) {
-        //   setEmail(email)
-        //   setLoggedIn(true);
-        //   localStorage.setItem('token', data.token)
-        //   history.push('/')
-        // }
-        console.log(data);
         if (data) {
           setEmail(email)
           setLoggedIn(true);
-          // localStorage.setItem('token', data.token)
           history.push('/')
         }
       })
