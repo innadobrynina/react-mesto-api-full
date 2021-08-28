@@ -117,7 +117,7 @@ const patchAvatar = (req, res, next) => {
 
 const login = (req, res, next) => {
   const { email, password } = req.body;
-
+  const { NODE_ENV, JWT_SECRET = 'secret-key', JWT_DEV = 'dev-key' } = process.env;
   User.findOne({ email }).select('+password')
     .then((user) => {
       if (!user) {
@@ -130,7 +130,8 @@ const login = (req, res, next) => {
           }
           const token = jwt.sign(
             { _id: user._id },
-            req.app.locals.jwtKey,
+            /* req.app.locals.jwtKey, */
+            NODE_ENV === 'production' ? JWT_SECRET : JWT_DEV,
             { expiresIn: '7d' },
           );
 
