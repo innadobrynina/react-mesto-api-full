@@ -1,12 +1,4 @@
-const configAPI = {
-    baseUrl: 'https://backend.indob.nomoredomains.monster',
-    headers: {
-      // authorization: 'bb37a53f-65dd-4153-b255-188fa4e0f13b',
-      'Content-Type': 'application/json',
-    },
-  };
-
-class Api {
+export class Api {
     constructor(options) {
         this._baseUrl = options.baseUrl;
         this._headers = options.headers;
@@ -21,8 +13,6 @@ class Api {
 
     getInitialCards() {
         return fetch(`${this._baseUrl}/cards`, {
-            method: 'GET',
-            credentials: 'include',
             headers: this._headers
         })
             .then((this._checkStatus));
@@ -30,8 +20,6 @@ class Api {
 
     getUserData() {
         return fetch(`${this._baseUrl}/users/me`, {
-            method: 'GET',
-            credentials: 'include',
             headers: this._headers,
 
         })
@@ -91,13 +79,10 @@ class Api {
 }
 
 
-export const api = new Api(configAPI);
-
-export default api;
-    /* {
+export const api = new Api({
     baseUrl: "https://mesto.nomoreparties.co/v1/cohort-22",
     headers: {
         authorization: "bb37a53f-65dd-4153-b255-188fa4e0f13b",
         "Content-Type": "application/json",
     },
-}); */
+});
