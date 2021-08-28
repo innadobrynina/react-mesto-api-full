@@ -32,7 +32,7 @@ const corsOptions = {
   credentials: true,
 };
 
-app.locals.jwtKey = 'secret-key';
+app.locals.jwtKey = process.env.JWT_SECRET;
 
 app.use(cors(corsOptions));
 app.use((req, res, next) => {
@@ -55,6 +55,12 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.post('/signin', validateEmailAndPassword, login);
 app.post('/signup', validateRegistration, createUser);
