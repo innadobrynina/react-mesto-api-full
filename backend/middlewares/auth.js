@@ -3,21 +3,16 @@ const AuthError = require('../errors/AuthError');
 
 // eslint-disable-next-line consistent-return
 const auth = (req, res, next) => {
+  const { NODE_ENV, JWT_SECRET = 'secret-key', JWT_DEV = 'dev-key' } = process.env;
   const token = req.cookies.jwt;
-
-  if (!token) {
-    return next(new AuthError('Необходимо авторизоваться'));
-  }
-
-  let payload;
+  const secretKey = NODE_ENV === 'production' ? JWT_SECRET : JWT_DEV;
 
   try {
-    payload = jwt.verify(token, req.app.locals.jwtKey);
+    const payload = jwt.verify(token, secretKey);
+    req.user = payload;
   } catch (err) {
     return next(new AuthError('Неверный токен'));
   }
-
-  req.user = payload;
 
   next();
 };
